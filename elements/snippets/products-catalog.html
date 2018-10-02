@@ -1,0 +1,19 @@
+{% if products|length > 0 %}
+    {% if utils.is_mobile %}
+        <div class="carousel-mobile owl-theme owl-carousel">
+            {% for product in products %}
+                {{ _view.element('snippets/product', {"product": product}) }}
+            {% set categoria = Categories( { "id": categoria } ) %}
+            {% endfor %}
+        </div>
+    {% else %}   
+        
+        {% for product in products %}
+            <div class="col-lg-3 col-md-4 col-sm-6">
+            {{ _view.element('snippets/product', {"product": product}) }}
+            </div>
+        {% set categoria = Categories( { "id": categoria } ) %}
+        {% endfor %}
+        
+    {% endif %}
+{% endif %}

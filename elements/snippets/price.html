@@ -1,0 +1,81 @@
+<div class="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+    {% if product.available %}
+            {% if product.upon_request %}
+                <p>Produto Sob Consulta</p>
+            {% else %}
+            
+                {% if product.has_variation %}
+                   <!--  <span class="price-various">De:</span>  -->
+                {% endif %} 
+                
+                {% if settings.price_before_style == 'strike' or settings.price_before_style == 'strike-depor' %}
+                    {% set priceStyle = 'strike' %}
+                {% endif %}
+                {% if settings.price_before_style == 'depor' or settings.price_before_style == 'strike-depor' %}
+                    {% set priceOld = '' %}
+                {% endif %}
+                    
+                {% if product.price_offer > 0  %}
+                    
+                    
+                    <div class="price-promotion">
+                        <div itemprop="offers" class="price-off" itemscope itemtype="http://schema.org/Offer" content="{{ product.price }}">
+
+                            <div class="price-before {{ priceStyle }}" content="{{ product.price }}">
+                                <div itemprop="priceCurrency" content="BRL">
+                                    {% if product.has_other_prices %} 
+                                        R$
+                                    {% else %}
+                                        {{ priceOld }} <abbr class="currency" title="BRL">{{ settings.currency }}</abbr> 
+                                    {% endif %}
+                                    {{ product.price|currency }}
+                                </div>
+                            </div>
+
+                            {% if product.has_other_prices %}
+                               <br> {{ Translation('apartir') }} <span class="preco-avista precoAvista">R$ {{ product.price_offer|currency  }}</span>
+                            {% else %}
+                                {{ priceOld ? '' }} 
+                             
+                                        <span class="preco-avista precoAvista">
+                                            R$ {{ product.price_offer|currency  }}
+                                        </span>
+                                        <br>
+                                        <small>
+                                        {% if product.price < 140 or product.price_offer < 140 %}
+                                            {% if settings.discount %}{% endif %}
+                                            {% set porcentagemDesconto = 100 - ( product.price_offer / product.price ) * 100 %}
+                                            <span class="discount product-payment" title="{{ porcentagemDesconto|number_format }}% de desconto">                                        
+                                            Economize 
+                                            {% set economize =  ( product.price - product.price_offer ) %}
+                                            {{ settings.currency }}  {{ economize|number_format(2, ',', '.') }}
+                                            </span>
+                                        {% else %}
+                                            {% for payment in product.payment_option_details %}                                            
+                                                ou {{ payment.plots }}x <strong>{{ payment.plots > 6 ? '' : 'sem juros' }}</strong> de <strong>{{ settings.currency }} {{ payment.value|currency  }}</strong>
+                                            {% endfor %}
+                                        {% endif %}
+                                        </small>
+
+
+                            {% endif %}
+                        </div>
+                    </div>
+                {% else %}
+                    <span itemprop="priceCurrency" content="BRL"  content="{{ product.price }}">
+                        {% if product.has_other_prices %}
+                            {{ Translation('apartir') }} R$ {{ product.price|currency  }} 
+                        {% else %}
+                            <br><span class="preco-avista precoAvista"> {{ priceOld ? '' }} R$ {{ product.price|currency  }} </span>
+                        {% endif %}
+                    </span>
+                {% endif %}
+            {% endif %}
+            
+   
+        
+    {% else %} 
+        <p>Indispon&iacute;vel</p>
+    {% endif %} 
+    
+</div>

@@ -1,0 +1,315 @@
+        </section> <!-- page-content col-sm-12 -->
+    </div> <!-- content -->
+</div> <!-- container -->
+<style>
+    clerk#clerk2,
+    #conteudo-principal,
+    #conteudo-landing,
+    div#netreviewsWidgetNum2949widget09av {
+        display: none !important;
+    }
+
+    .subcategoria {
+        width: 23%;
+    }
+
+    .lp-subheader {
+        padding: 60px 15px 15px;
+    }
+
+    .lp-title {
+        font-size: 44px;
+        letter-spacing: 3px;
+        max-width: 470px;
+        position: relative;
+        display: table;
+    }
+
+    .lp-title:before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 55%;
+        height: 5px;
+        background: #EE8381;
+        left: 0;
+        top: 25px;
+        margin-top: -3px;
+        z-index: -1;
+    }
+
+    .lp-link {
+        font-size: 14px;
+        color: #EE8381;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 20px;
+        display: table;
+        float: right;
+    }
+
+    .subcategoria {
+        border: 3px solid #EE8381;
+        background: transparent;
+        color: #944940;
+        padding: 30px;
+        min-height: 96px;
+        transition: all .25s;
+    }
+
+    .subcategoria:hover {
+        background-color: #EE8381;
+        color: white;
+    }
+
+    .subcategoria h3 {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 300;
+    }
+
+    .category-header h1 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .box-dark {
+        padding-right: 20px;
+        line-height: 2;
+    }
+
+    .box-dark p {
+        display: none;
+    }
+
+    .box-dark p:first-child {
+        display: block;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .category-header-description.text-center {
+        background: white;
+        max-width: 650px;
+        margin: 15px auto 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        padding: 30px;
+    }
+
+    .product .product-image {
+        max-width: 190px;
+        width: 100% !important;
+    }
+
+    .product .product-image img {
+        width: 100%;
+    }
+
+    @media (max-width:768px) {
+        .subcategoria {
+            width: 46%;
+            max-width: 45%;
+            float: left;
+            display: block;
+            margin: 0 2.5% 20px;
+            padding: 0;
+            min-height: 60px;
+            height: auto;
+            display: flex!important;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .subcategoria h3 {
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .lp-title {
+            font-size: 30px;
+        }
+
+        .category-header-description.text-center {
+            font-size: 12px;
+        }
+
+        .category-header h1 {
+            padding: 0;
+        }
+
+        .product .product-image {
+            max-width: 130px;
+            height: 130px;
+        }
+
+        .owl-stage-outer {
+            padding-top: 30px;
+            width: 100%;
+        }
+
+        .carousel-mobile .product>a {
+            min-height: 330px;
+        }
+
+        .product>a small {
+            font-size: 65%;
+        }
+
+        .subcategoria {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 0 15px;
+        }
+    }
+
+
+</style>
+
+<!-- INÍCIO DA LANDING PAGE -->
+
+
+<div class="category-header">
+    {% if banner.title and paginate.params.page == 1 %}
+        <div class="banner-title">
+            {{ banner.title }}
+            {#{ banners.title.src }#}
+        </div>
+    {% endif %}
+
+    <div class="container">
+        
+        <hr style="border-top:1px solid #fbfbfb; margin-top:15px; margin-bottom: 5px;">
+        {% if category.small_description and paginate.params.page == 1 %}
+            <div class="row descricao-filtros">
+                <div class="col-sm-12">
+
+                    <h1 class="text-center">{{ category.name }}</h1>
+                    <div class="category-header-description text-center">
+                        {{ category.small_description }}
+                    </div>
+                </div>
+                {#
+                <div class="col-sm-4">
+                    {% if not utils.is_mobile %}
+                    <div class="category-selects">
+                        {{ _view.element('snippets/filter', {
+                            'brands': category.brands 
+                        }) }}
+                    </div>
+                    {% endif %}
+                </div>
+                #}
+            </div>
+
+        {% endif %}
+        <hr style="border-top:1px solid #fbfbfb; margin-top:10px;">
+        {% if category.children %}
+            <div class="subcategorias">
+            {% for children in category.children %}
+                {% set categoryTray = Categories( { "id": children.id } ) %}
+                <a href="{{ children.link }}" class="subcategoria" style="background-image: url({{ (categoryTray.images) ? categoryTray.images[0] : '' }})">
+                    <h3>{{ children.name }}</h3>
+                </a>
+            {% endfor %}
+            </div>
+        {% endif %}
+       
+    </div>
+</div>
+
+
+<div id="estilo-moderno">
+    <div class="curadoria">
+        <div class="container">
+            
+            {% if category.children %}                
+                {% for children in category.children %}
+                    {% set categoryTray = Categories( { "id": children.id } ) %}
+                    
+
+                    <div class="row lp-subheader">
+
+                        {% if categoryTray.small_description %}
+                            <div class="col-md-12">
+                                <h2 class="lp-title">{{children.name}}</h2>
+                            </div>
+                        {% else %}
+                            <div class="col-md-6">
+                                <h2 class="lp-title">{{children.name}}</h2>
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <a class="lp-link" href="{{ children.link }}">Ver todos os Produtos</a>
+                            </div>
+                        {% endif %}
+                        
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="secao-curadoria" class="slider listaVendidos my-5">
+                                
+                                {% set idCategory = children.id %}
+                                {% set categoryTray = Categories( { "id": idCategory } ) %}
+                               
+                                {% if categoryTray.small_description %}
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="box-dark">                                            
+                                            {# (categoryTray.images) ? categoryTray.images[0] : '' #}
+                                            {{ categoryTray.small_description }}
+                                            <a class="lp-link hidden-xs hidden-sm" href="{{ children.link }}">Ver todos os Produtos</a>                                     
+                                        </div>
+                                    </div>
+                                    {% set numProd = 7 %}
+                                {% else %}
+                                    {% set numProd = 8 %}
+                                {% endif %}
+
+                                
+                                
+                                {% set produtos = Products({ 
+                                    'filter': 'available',
+                                    'order': 'rand',
+                                    'limit': numProd,
+                                    'categories': [idCategory]
+                                }) %} 
+                                {{ _view.element('snippets/products-catalog', {
+                                    "products": produtos
+                                }) }}
+
+                                <a class="lp-link visible-xs visible-sm" href="{{ children.link }}">Ver todos os Produtos</a>
+
+                                
+
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <hr style="border-top:1px solid #fbfbfb; margin-top:50px;">
+
+                {% endfor %}          
+            {% endif %}
+            
+ 
+
+
+        </div>   
+    </div>
+</div>
+
+<!-- FIM DA LANDING PAGE -->
+
+
+
+
+
+<div id="conteudo-landing" class="container">
+    <div class="content">
+        <section class="page-content col-sm-12" id="category-page">
+
+
+
+                

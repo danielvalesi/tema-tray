@@ -1,0 +1,165 @@
+        </section> <!-- page-content col-sm-12 -->
+    </div> <!-- content -->
+</div> <!-- container -->
+
+<style>
+    
+    clerk#clerk2,
+    #conteudo-principal,
+    #conteudo-landing,
+    div#netreviewsWidgetNum2949widget09av {
+        display: none !important;
+    }
+
+    .vspace-sm.category-breadcrumb {
+        margin-top: 0;
+    }
+
+    .category-selects {
+        float: right;
+    }
+
+    form.catalogo-form-filtros .filtros {
+        width: 100%;
+        font-size: 0;
+    }
+
+    select#select_ordem {
+        margin: 0;
+    }
+
+    .category-header h1 {
+        margin-top: 0;
+    }
+
+</style>
+
+{% if banner.title and paginate.params.page == 1 %}
+    <div class="banner-title">
+        {{ banner.title }}
+        {#{ banners.title.src }#}
+    </div>
+{% endif %}
+
+<!-- FIM DA LANDING PAGE -->
+
+<div class="container">
+
+
+{% if breadcrumb %}
+        <div class="vspace-sm category-breadcrumb">
+            {{ _view.element('snippets/breadcrumb') }}
+        </div>
+    {% endif %}
+    
+    <div class="category-header">
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>
+                    {{ category.name }}            
+                </h1>
+            </div>
+            <div class="col-sm-4">
+                {% if not utils.is_mobile %}
+                <div class="category-selects">
+                    {{ _view.element('snippets/filter', {
+                        'brands': category.brands 
+                    }) }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        
+
+        
+
+        {#% if category.children %}
+            <div class="subcategorias">
+            {% for children in category.children %}
+                {% set categoryTray = Categories( { "id": children.id } ) %}
+                <div class="subcategoria" style="background-image: url({{ (categoryTray.images) ? categoryTray.images[0] : '' }})">
+                    <a href="{{ children.link }}">
+                        <h3>{{ children.name }}</h3>
+                    </a>
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %#}
+
+        
+
+        <hr style="border-top:1px solid #fbfbfb; margin-top:10px;">
+        
+        {#% set categoryTray = Categories( { "id": category.id } ) %}
+        {% if categoryTray.images %}
+        <div class="category-header-image">
+            <img src="{{ categoryTray.images[0] }}" alt="{{ category.name }}" class="img-responsive">
+        </div>
+        {% endif %#}
+        
+    </div>
+
+    {% if products|length > 0 %}
+        
+        {% if filters %}
+            <aside class="sidebar col-md-3">
+                {% element 'snippets/smart-filter' %} 
+            </aside>
+        {% endif %}
+
+        {% if utils.is_mobile %}
+        <div class="vspace-sm category-brands">
+            {{ _view.element('snippets/filter', {
+                'brands': category.brands 
+            }) }}
+        </div>
+        {% endif %}
+
+        <div class="vspace-sm category-products">
+            {{ _view.element('snippets/showcase', {
+                "products": products
+            }) }}
+        </div>
+
+        {% if utils.is_mobile %}
+            <small class="category-result" style="text-align:center;display:block;margin-top:4px;margin-bottom:20px;color:#666; font-weight: 100;">
+                {{ paginate.counter('Exibindo <b>{:count} produtos</b> em <b>{:pages} páginas</b>') }}
+            </small>
+        {% endif %}
+
+        <div class="vspace-sm category-pagination">
+            {{ _view.element('snippets/pagination') }}
+        </div>
+
+    {% else %}
+
+        <p>Nenhum produto encontrado nessa categoria.</p>
+
+    {% endif %}
+
+    <hr style="border-top:1px solid #fbfbfb; margin-top:15px; margin-bottom: 5px;">
+    
+    {% if category.small_description and paginate.params.page == 1 %}
+        <div class="row descricao-filtros">
+            <div class="col-sm-12">
+                <div class="category-header-description">
+                    {{ category.small_description }}
+                </div>
+            </div>
+        </div>
+        <hr style="border-top:1px solid #fbfbfb; margin-top:15px; margin-bottom: 30px;">
+    {% endif %}
+
+    {% if banner.bottom %}
+        <div class="banner banner-bottom">
+            {{ banner.bottom }}
+        </div>
+    {% endif %}
+
+</div>
+
+<div id="conteudo-landing" class="container">
+    <div class="content">
+        <section class="page-content col-sm-12" id="category-page">

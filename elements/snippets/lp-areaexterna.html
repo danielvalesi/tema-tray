@@ -1,0 +1,533 @@
+        </section> <!-- page-content col-sm-12 -->
+    </div> <!-- content -->
+</div> <!-- container -->
+<style>
+    clerk#clerk2,
+    #conteudo-principal,
+    #conteudo-landing,
+    div#netreviewsWidgetNum2949widget09av {
+        display: none !important;
+    }
+
+    #area-externa-header {
+        background-color: #eee;
+        background-image: url({{ themePath }}img/lp-bg-topo.jpg);
+        background-size: cover;
+        background-size: initial;
+        background-position: center top;
+        padding: 60px 0;
+    }
+
+    #area-externa-header h1 {
+        font-size: 64px;
+        color: #000;
+        font-weight: 400;
+        position: relative;
+        padding: 0 50px;
+        margin: 0 0 30px;
+        letter-spacing: 5px;
+        line-height: 1.1;
+        left: 50px;
+    }
+
+    #area-externa-header h1::after {
+        position: absolute;
+        content: '';
+        display: table;
+        left: 54px;
+        bottom: -30px;
+        width: 60px;
+        height: 5px;
+        background-color: #000;
+    }
+
+    #area-externa-header .box-white {
+        background-color: white;
+        padding: 50px 60px;
+        margin: 50px 50px 30px;
+        font-size: 16px;
+        line-height: 1.75;
+        color: #555;
+        letter-spacing: .25px;
+        box-shadow: 15px 15px 50px rgba(0,0,0,0.2);
+    }
+
+    #area-externa-header .box-white strong {
+        color: #000;
+    }
+
+    #area-externa {
+        padding: 60px 0;
+        font-size: 16px;
+        line-height: 1.8;
+        letter-spacing: .2px;
+    }
+
+    #area-externa h2,
+    #area-externa h2.mobile {
+        font-size: 46px;
+        font-weight: 400;
+        line-height: 1.4;
+        letter-spacing: 4px;
+        margin-bottom: 50px;
+    }
+
+    #area-externa h2.mobile {
+        display: none;
+    }
+
+    #area-externa h3 {
+        font-size: 46px;
+        text-transform: initial;
+        letter-spacing: -2px;
+        line-height: 1.3;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .my-5 {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+
+    .m-auto {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .carousel-center .owl-item img {
+        opacity: .7;
+        animation: all .3s;
+    }
+    .carousel-center .owl-item.center img {
+        opacity: 1;
+    }
+
+    .carousel-center {
+        position: relative;
+    }
+
+    .carousel-center .owl-nav [class*=owl-] {
+        position: absolute;
+        top: 50%;
+        background: transparent;
+        border-radius: 0;
+        padding: 20px 12px;
+        margin: 0;
+        color: white;
+        font-size: 60px;
+        margin-top: -80px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .carousel-center .owl-nav [class*=owl-]:hover {
+        background: transparent;
+    }
+
+
+    .carousel-center .owl-prev { left: 15%; }
+    .carousel-center .owl-next { right: 15%;}
+
+    .btn-outline {
+        border: 3px solid black;
+        border-radius: 100px;
+        color: black;
+        padding: 8px 80px;
+        display: table;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .btn-outline:hover {
+        color: white;
+        background-color: #00a859;
+        border-color: #00a859;
+    }
+    
+    .slider{
+        min-height: auto;
+    }
+
+    .separador {
+        margin-top: 10rem !important;
+        margin-bottom: 10rem !important;
+        opacity: .75;
+    }
+
+    .curadoria {
+        background-image: url({{ themePath }}img/lp-bg-curadoria.jpg);
+        background-position: center 50px;
+        background-repeat: no-repeat;
+    }
+
+    .curadoria-texto {
+        margin-top: 80px;
+        margin-bottom: 60px;
+    }
+
+    .curadoria .confira {
+        color: black;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+
+
+
+    @media (max-width: 768px) {
+        #area-externa-header {
+            background-size: cover;
+            background-position: left center;
+            padding-top: 30px;
+        }
+        #area-externa-header h1 {
+            font-size: 33px;
+            padding: 0 0 0 30px;
+            left:0;
+        }
+
+        #area-externa-header h1::after {
+            left: 30px;
+        }
+
+        #area-externa-header .box-white {
+            padding: 30px 25px;
+            margin: 30px -5px;
+            font-size: 14px
+        }
+
+        #area-externa {
+            font-size: 14px;
+            letter-spacing: 0;
+        }
+
+        .carousel-center .owl-nav [class*=owl-] {
+            font-size: 30px;
+            margin-top: -50px;
+        }
+        .carousel-center .owl-nav .owl-prev {
+            left: 0;
+        }
+        .carousel-center .owl-nav .owl-next {
+            right: 0;
+        }
+
+        #area-externa h2,
+        #area-externa h2.mobile {
+            font-size: 22px;
+            margin-top: 30px;
+            text-align: center;
+            display: none;
+        }
+
+        #area-externa h2.mobile {
+            display: block;
+        }
+
+        #area-externa h3 {
+            font-size: 20px;
+            letter-spacing: 0;
+            margin-bottom: 30px
+        }
+
+        .btn-outline {
+            padding: 8px 10px;
+            display: table;
+            font-size: 14px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .separador {
+            margin: 5rem auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .img-arandelas { max-width: 250px; margin: 0 auto; display: table; }
+        #area-externa  { text-align: center; }
+        #area-externa .row {
+            margin: 0;
+        }
+
+        #area-externa  .carousel-showcase .owl-next {
+            right: -30px;
+        }
+
+        #area-externa  .carousel-showcase .owl-prev {
+            left: -30px;
+        }
+    }
+
+</style>
+
+<!-- INÍCIO DA LANDING PAGE -->
+
+<div id="area-externa-header">
+    <div class="container">
+        <h1>ÁREAS <br><strong>EXTERNAS</strong></h1>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="box-white">
+
+                    {% set categoryTray = Categories( { "id": 360 } ) %}
+                    {{ categoryTray.small_description }}
+
+                    
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="area-externa">
+    <div class="curadoria">
+        <div class="container">
+            <img src="{{ themePath }}img/lp-barra-curadoria.jpg" alt="Curadoria Casa.Center" class="img-reposnsive">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-3 col-sm-8 col-sm-offset-1">
+                    <div class="curadoria-texto">
+                        <p>
+                            A área externa de uma casa é o ambiente de união entre o aconchego urbano e a natureza em todas suas formas e cores. Pensando nisso, selecionamos peças de decoração de alta qualidade e resistência que valorizam as áreas externas e vão dar ainda mais requinte para sua casa.
+                        </p>
+                        <p>
+                            <strong>Já escolheu o seu favorito?</strong>
+                        </p>
+                    </div>
+
+                    <a href="#secao-curadoria" class="confira">Confira abaixo alguns dos <br>itens de nossa seleção <i class="fas fa-long-arrow-alt-down"></i></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="secao-curadoria" class="slider listaVendidos my-5">
+                        {% set curadoria = Products({ 
+                            'filter': 'available',
+                            'order': 'rand',
+                            'limit': 8,
+                            'categories': [376]
+                        }) %} 
+                        {{ _view.element('snippets/showcase2', {
+                            "products": curadoria
+                        }) }}
+                    </div>
+                </div>
+                <a href="/ambientes/area-externa/curadoria" class="btn btn-outline btn-lg m-auto text-center my-5">VER TODOS OS PRODUTOS SELECIONADOS</a>
+                <img src="{{ themePath }}img/lp-separador.jpg" alt="- - -" class="img-reposnsive m-auto separador">
+            </div>
+        </div>   
+    </div>
+
+    <div class="container">
+        <img src="{{ themePath }}img/lp-barra-vasos-vietnamitas.jpg" alt="Vasos Vietnamitas" class="img-reposnsive">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 text-center my-5">
+                <p>O Vietnã possui uma tradição secular na produção artesanal de vasos de cerâmica. Essa técnica especial torna cada peça única e exclusiva. A coloração é feita com esmaltes à base de resina que em altas temperaturas reagem e resultam em cores únicas! Podem ser usados tanto em áreas externas quanto em área internas. Por serem peças únicas e imponente eles chamam a atenção e garantem uma decoração super elegante.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-center owl-carousel owl-theme">
+        <img src="{{ themePath }}img/lp-vietnamita-foto1.jpg" alt="Vasos Vietnamitas - Foto 1" class="img-reposnsive">
+        <img src="{{ themePath }}img/lp-vietnamita-foto2.jpg" alt="Vasos Vietnamitas - Foto 2" class="img-reposnsive">
+        <img src="{{ themePath }}img/lp-vietnamita-foto3.jpg" alt="Vasos Vietnamitas - Foto 3" class="img-reposnsive">
+        <img src="{{ themePath }}img/lp-vietnamita-foto4.jpg" alt="Vasos Vietnamitas - Foto 4" class="img-reposnsive">
+    </div>
+    
+    <div class="container">    
+        <hr style="border-top:1px solid #fbfbfb">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="secao-vietnamitas" class="slider listaVendidos my-5">
+                    {% set vietnamitas = Products({ 
+                        'filter': 'available',
+                        'order': 'rand',
+                        'limit': 8,
+                        'categories': [362]
+                    }) %} 
+                    {{ _view.element('snippets/showcase2', {
+                        "products": vietnamitas
+                    }) }}
+                </div>
+            </div>
+        </div>
+        
+        <a href="/ambientes/area-externa/vasos-vietnamitas" class="btn btn-outline btn-lg m-auto text-center my-5">VER TODOS VASOS VIETNAMITAS </a>
+        <img src="{{ themePath }}img/lp-separador.jpg" alt="- - -" class="img-reposnsive m-auto separador">
+        <img src="{{ themePath }}img/lp-barra-iluminacao-pendentes.jpg?{{ 'now'|date('mdYHis') }}" alt="Iluminação: Pendentes" class="img-reposnsive my-5">
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-1">
+                <h3>Chegou a hora de aproveitar as noites lá fora!</h3>
+            </div>
+            <div class="col-md-5 col-md-offset-1">
+                <p>Iluminar área externa é um desafio gostoso né? Pensar na iluminação de cada cantinho com luz na medida certa, garante um ambiente sempre iluminado e perfeito para receber os amigos e a família.</p>
+                <p>Veja aqui a nossa seleção de pendentes e aproveite para dar mais vida do lado de fora!</p>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-md-12">
+                <div id="secao-pendentes" class="slider listaVendidos my-5">
+                    {% set pendentes = Products({ 
+                        'filter': 'available',
+                        'order': 'rand',
+                        'limit': 8,
+                        'categories': [370]
+                    }) %} 
+                    {{ _view.element('snippets/showcase2', {
+                        "products": pendentes
+                    }) }}
+                </div>
+            </div>
+        </div>
+
+        <a href="/ambientes/area-externa/iluminacao/" class="btn btn-outline btn-lg m-auto text-center my-5">VER TODOS OS ITENS</a>
+
+        <img src="{{ themePath }}img/lp-separador.jpg" alt="- - -" class="img-reposnsive m-auto separador">
+
+        
+        {#
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <h2 class="mobile">ILUMINAÇÃO <br><strong>ARANDELAS</strong></h2>
+                <img src="{{ themePath }}img/lp-barra-iluminacao-arandelas.jpg" alt="Iluminação: Arandelas" class="img-reposnsive img-arandelas" style="margin-top: -50px;">
+            </div>
+            <div class="col-md-5">
+                <hr style="border-top:1px solid #fbfbfb">
+                <h2>ILUMINAÇÃO <br><strong>ARANDELAS</strong></h2>
+                <p>
+                    As <strong>arandelas</strong> proporcionam uma luz difusa e ao mesmo tempo concentrada, criando assim uma atmosfera intimista e uma estética refinada.
+                </p>
+                <p>
+                    São uma ótima opção para trazer conforto e elegância  Elas são com certeza a escolha certa tanto para jardins quanto para  áreas externas e corredores.  
+                </p>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-md-12">
+                <div id="secao-arandelas" class="slider listaVendidos my-5">
+                    {% set arandelas = Products({ 
+                        'filter': 'available',
+                        'order': 'rand',
+                        'limit': 8,
+                        'categories': [366]
+                    }) %}
+                    {{ _view.element('snippets/showcase2', {
+                        "products": arandelas
+                    }) }}
+                </div>
+            </div>
+        </div>
+        <a href="/ambientes/area-externa/arandelas" class="btn btn-outline btn-lg m-auto text-center my-5">VER TODAS AS ARANDELAS </a>
+        <img src="{{ themePath }}img/lp-separador.jpg" alt="- - -" class="img-reposnsive m-auto separador">
+        #}
+
+        <img src="{{ themePath }}img/lp-barra-seat-gardens.jpg" alt="Seat Gardens" class="img-reposnsive my-5">
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-1">
+                <h3>A versatilidade das banquetas para jardim</h3>
+            </div>
+            <div class="col-md-5 col-md-offset-1">
+                <p>O <strong>Seat Garden</strong> é hoje um dos queridinhos quando falamos em composições de décor. Você pode utilizá-lo para vários fins como, por exemplo, mesas de centro, assentos extras, para apoio de pés, composição com sofás e poltronas dentre tantos outros. A sua versatilidade garante muita personalidade e vai transformar a sua varanda em um ambiente único.</p>                
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-md-12">
+                <div id="secao-seatgardens" class="slider listaVendidos my-5">
+                    {% set seatgardens = Products({ 
+                        'filter': 'available',
+                        'order': 'rand',
+                        'limit': 8,
+                        'categories': [372]
+                    }) %} 
+                    {{ _view.element('snippets/showcase2', {
+                        "products": seatgardens
+                    }) }}
+                </div>
+            </div>
+        </div>
+
+        <a href="/ambientes/area-externa/seat-garden" class="btn btn-outline btn-lg m-auto text-center my-5">VER TODOS SEAT GARDENS </a>
+
+        <img src="{{ themePath }}img/lp-separador.jpg" alt="- - -" class="img-reposnsive m-auto separador">
+
+        <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <h2 class="mobile">ALMOFADAS <br><strong>DECORATIVAS</strong></h2>
+                <img src="{{ themePath }}img/lp-barra-almofadas-decorativas.jpg?{{ 'now'|date('mdYHis') }}" alt="Almofadas Decorativas" class="img-reposnsive" style="margin-bottom: 30px;">
+            </div>
+            <div class="col-md-5">
+                <h2>ALMOFADAS <br><strong>DECORATIVAS</strong></h2>
+                <p>
+                    A área externa tem por si só um ar convidativo e pede uma combinação aconchegante. Para isso nada melhor do que investir em <strong>almofadas</strong> para compor a decoração e garantir esse aconchego todo. 
+                </p>
+                <p>
+                    Almofadas impermeáveis são perfeitas para composição em áreas externas e podem ser combinadas em diferentes tamanhos e estampas.
+                </p>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-md-12">
+                <div id="secao-almofadas" class="slider listaVendidos my-5">
+                    {% set almofadas = Products({ 
+                        'filter': 'available',
+                        'order': 'rand',
+                        'limit': 8,
+                        'categories': [364]
+                    }) %} 
+                    {{ _view.element('snippets/showcase2', {
+                        "products": almofadas
+                    }) }}
+                </div>
+            </div>
+        </div>
+
+        <a href="/ambientes/area-externa/almofadas" class="btn btn-outline btn-lg m-auto text-center my-5">VER TODAS AS ALMOFADAS</a>
+        <!-- <img src="{{ themePath }}img/lp-separador.jpg" alt="- - -" class="img-reposnsive m-auto separador"> -->
+    </div>
+</div>
+
+
+<script>
+    (function($){
+        jQuery('.carousel-center').owlCarousel({
+            items: 2,
+            loop:true,
+            infinite: true,
+            dots: false,
+            margin:30,
+            nav:true,
+            center: true,
+            navText: ['<i class="fas fa-long-arrow-alt-left"></i>','<i class="fas fa-long-arrow-alt-right"></i>'],
+            navText: ['<i class="fas fa-angle-left"></i>','<i class="fas fa-angle-right"></i>'],
+            autoplay: false,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            rewind: true,
+            smartSpeed: 1000,
+            responsive:{              
+                    0:{
+                        items:2,
+                        margin: 10,
+                    },
+                    768:{
+                        items:2,
+                    }
+                }
+        })
+    })(jQuery);
+</script>
+
+<!-- FIM DA LANDING PAGE -->
+
+<div id="conteudo-landing" class="container">
+    <div class="content">
+        <section class="page-content col-sm-12" id="category-page">

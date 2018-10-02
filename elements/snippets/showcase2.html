@@ -1,0 +1,12 @@
+{% if products|length > 0 %}
+<!-- slider -->
+ <div class="galeria">
+    <div class="carousel-showcase owl-carousel owl-theme">
+    {% for product in products %}
+        <div>{{ _view.element('snippets/product', {"product": product}) }}</div>
+        {% set categoria = Categories( { "id": categoria } ) %}
+    {% endfor %}
+    </div>
+</div>
+<!-- slider -->
+{% endif %}

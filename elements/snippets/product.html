@@ -1,0 +1,110 @@
+<div itemscope itemtype="http://schema.org/Product" class="product {{ product.has_other_prices ? ' has-other-prices' }}">
+    <a href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
+        {% set porcentagemDesconto = 100 - ( product.price_offer / product.price ) * 100 %}
+        {% if product.additional_button == 1 %}
+            <span class="blackfriday-tag">
+                <strong>PROMOÇÃO</strong><br>
+            </span>
+            <span class="balloon">
+                 {{ porcentagemDesconto|number_format }}%
+            </span>
+        {% endif %}
+
+        {% if product.has_variation %}
+            {% set varCor = '' %}
+            {% for variant in product.variants %}            
+                {% if varCor != variant.Sku[0].value %}
+                    
+                    {% if variant.Sku[0].image_secure %}
+                        <img style="height: 20px; width: 20px; margin: -40px 0 -40px; z-index: 10; position: relative; display: inline-block; border-radius: 100px; border: 2px solid rgba(0,0,0,0.1)" src="{{ variant.Sku[0].image_secure }}" alt="{{ variant.Sku[0].value }}" title="{{ variant.Sku[0].value }}" id="variacao-{{variant.id}}">
+                    {% else %}
+                        {{ variant.Sku[0].value }}
+                    {% endif %}
+
+                    <style>
+                    #produto-variacao-{{variant.id}} {
+                        opacity: 0;
+                        transition: all .2s;
+                    }
+
+                    #variacao-{{variant.id}}:hover~.product-image #produto-variacao-{{variant.id}} {
+                        opacity: 1;
+                    }
+                    </style>
+                    {% set varCor = variant.Sku[0].value %}
+                {% endif %} 
+            {% endfor %}
+        {% endif %}
+
+        <div class="product-image">
+            {% if product.images %}
+                {% if utils.is_mobile %}
+                <img src="{{ product.images[0].large }}" alt="{{ product.name }}" title="{{ product.name }}">
+                {% else %}
+                <img data-original="{{ product.images[0].large }}" class="lazy img1" src="{{ asset('img/loading.gif') }}" alt="{{ product.name }}" title="{{ product.name }}">
+                    {% if product.images[1] %}
+                        <img data-original="{{ product.images[1].large }}" class="lazy img2">
+                    {% endif %}
+                {% endif %}
+            {% else %}
+                <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="100" title="{{ product.name }}">
+            {% endif %}
+
+            {% if product.has_variation %}
+                {% set varCor = '' %}
+                {% for variant in product.variants %}            
+                    {% if varCor != variant.Sku[0].value %}
+                        
+                        
+                        {% if pages.current == 'product' %}
+                        <img src="{{ variant.VariantImage[0].thumbs.180.https }}" alt="{{ variant.Sku[0].value }}" id="produto-variacao-{{variant.id}}">
+                        {% else %}
+                        <img src="{{ variant.images[0].large }}" alt="{{ variant.Sku[0].value }}" id="produto-variacao-{{variant.id}}">
+                        {% endif %}
+                        
+                        {% set varCor = variant.Sku[0].value %}
+                    {% endif %} 
+                    
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        
+
+        <div class="product-name" itemprop="name"><strong>{{ product.name }}</strong></div>    
+        <div class="product-price">
+            {% element 'snippets/price' {"product": product} %}
+        </div>
+        
+        {#
+        {% if settings.discount %}{% endif %}        
+        {% if porcentagemDesconto < 100 %}
+          <span class="discount"> {{ porcentagemDesconto|number_format }}% de desconto </span>
+        {% endif %}  
+        #}
+
+        {% if product.stock == 0 %}
+            
+            <span class="btComprar"><small>AVISE-ME QUANDO CHEGAR</small></span>
+        {% else %}
+            <br>
+            <span class="btComprar">COMPRAR</span>
+        {% endif %}        
+    </a>
+    
+    {% if pages.current == 'catalog' and settings.compare %}
+    <div class="compare-buttons">
+        {% set compareCSS = 'compare-hidden' %}
+
+        <a data-compare="remove" href="{{ links.compare_delete ~ product.id }}" class="{{ not product.compare ? compareCSS }}">
+            <span class="filter-checkbox checked"></span>
+            {{ Translation("remover_comparar") }}
+        </a>
+        
+        <a data-compare="add" href="{{ links.compare_add  ~ product.id }}" class="{{ product.compare ? compareCSS }}">
+            <span class="filter-checkbox"></span>
+            {{ Translation("comparar_produto") }}
+        </a>
+    </div>
+    {% endif %}
+</div>

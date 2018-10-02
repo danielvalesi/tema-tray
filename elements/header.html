@@ -1,0 +1,111 @@
+<header class="header">
+    <div class="fundo1">        
+    </div>
+    <div class="faixaUsuario clearfix">
+        <div class="agrupaconteudo-mobile clearfix">
+            <div class="logoBusca col-sm-3 col-xs-5">
+                {{ _view.element('snippets/logo', {'pages': pages, 'links': links, 'settings':
+                settings, 'Image': Image, 'store': store}) }}
+            </div>
+            <div class="menu-mobile2 col-xs-5">
+                <div class="group">
+                    <!-- <a class="whatsbutton" onclick="window.open('https://api.whatsapp.com/send?phone=+5517992159877&text=Olá, gostaria de saber mais sobre os produtos Casa.Center', '_blank');" href="tel:{{ Translation('ag_telefone_1')}}"> <i class="fa fa-whatsapp" aria-hidden="true"></i> </a> -->
+                    <a class="whatsbutton" href="whatsapp://send?phone=+5517992869286"><i class="fab fa-whatsapp"></i> </a>
+                    <a href="{{ links.central }}"> <i class="fas fa-user-circle"></i></a>
+                    <a href="{{ links.cart }}"><i class="fas fa-shopping-cart"></i></a>
+                    <!-- <i class="fa fa-bars showMenu"></i> -->
+                    <i class="fas fa-bars showMenu"></i>
+                </div>
+                <div class="list-group-a">
+                    {{ _view.element('snippets/search') }}
+                </div>
+                <div class="list-group">
+                    {{ _view.element('snippets/categories_list') }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="page" class="container">
+        <div class="clearfix">
+            <div class="row busca-box">
+                <div class="col-sm-4 col-md-3">
+                    {{ _view.element('snippets/logo', {'pages': pages, 'links': links, 'settings':
+                    settings, 'Image': Image, 'store': store}) }}
+                </div>
+                <div class="busca-topo col-sm-4 col-md-5 mobile-espaco-lateral">
+                    {{ _view.element('snippets/search') }}
+                </div>                
+                
+                <div class="linkPedidos col-sm-4 col-md-4">
+                    <div class="row">
+                        <div class="login-conta col-sm-9 col-md-8 col-md-offset-1 col-lg-7 hidden-xs text-center">
+                            
+                            <div id="login">
+                                <svg width="100%" height="100%" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;float:left;width: 32px; height:32px; margin-right: 10px;">
+                                    <path d="M16.185,0.631C23.381,0.758 30.028,6.378 31.174,13.53C32.098,19.291 29.427,25.467 24.572,28.75C24.232,28.981 24.223,28.98 23.863,29.198C17.95,32.702 9.814,31.655 5.007,26.733C1.256,22.891 -0.254,16.994 1.206,11.816C3.02,5.38 9.42,0.591 16.185,0.631ZM15.888,22.093C15.521,22.097 15.155,22.111 14.789,22.143C14.478,22.169 14.168,22.207 13.86,22.257C11.42,22.658 9.054,24.119 9.002,27.543C9.002,27.673 10.912,28.607 12.426,29.024C15.941,29.992 19.828,29.444 22.969,27.561C22.969,27.561 23.121,25.372 21.847,24.014C20.341,22.409 17.912,22.085 15.888,22.093ZM15.841,2.496C9.88,2.6 4.308,6.946 2.882,12.773C1.709,17.567 3.391,22.885 7.166,26.203C7.166,26.203 7.629,23.75 9.084,22.392C11.538,20.101 15.388,19.932 18.324,20.404C21.294,20.882 24.29,22.876 24.783,26.083C24.783,26.083 24.805,26.24 25.114,25.953C30.519,20.934 30.814,11.381 25.282,6.173C22.769,3.807 19.363,2.475 15.841,2.496ZM16.069,7.938C17.691,7.966 19.284,8.745 20.181,10.134C22.642,13.947 19.582,20.873 14.538,19.064C10.465,17.603 9.25,10.529 13.789,8.41C14.501,8.077 15.281,7.933 16.069,7.938ZM15.909,9.803C14.976,9.835 14.059,10.23 13.496,10.99C11.65,13.482 13.529,18.502 16.849,17.305C20.028,16.158 20.451,9.751 15.909,9.803Z" style="fill:rgb(102,102,102);"/>
+                                </svg>
+                                <ul class="menu-login">
+                                    <li class="tray-hide" data-logged-user="false"><a href="{{ links.login }}" class="{{ utils.is_https ? 'modal-login' }}">Fazer Login</a></li>
+                                    <li class="tray-hide" data-logged-user="false"><a href="{{ links.register }}">Cadastre-se</a></li>
+                                    <li><a href="{{ links.cart }}">Meu Carrinho</a></li>
+                                    <li class="tray-hide" data-logged-user="true"> 
+                                        <a href="{{ links.account }}">Meus Dados</a>
+                                    </li>
+                                    <li class="tray-hide" data-logged-user="true">
+                                        <a href="{{ links.orders }}">Meus Pedidos</a>
+                                    </li>
+                                    <li class="tray-hide" data-logged-user="true"><a href="{{ links.central }}">Central do Cliente</a></li>
+                                    <hr>
+                                    <li><a href="/trocas-e-devolucoes">Trocas e Devoluções</a></li>
+                                    <li><a href="{{ links.contact }}">Fale Conosco</a></li>
+                                    <li class="tray-hide" data-logged-user="true">
+                                        <a href="{{ links.logout }}" style="color: red;">Sair</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            Olá <strong data-customer="name"></strong> <span class="tray-hide" data-logged-user="false"> seja bem-vindo!</span> <br>
+                            <span class="tray-hide" data-logged-user="false">
+                                <a href="{{ links.login }}" class="{{ utils.is_https ? 'modal-login' }}">Faça login</a> ou <a href="{{ links.register }}">Cadastre-se</a>
+                            </span>
+                            <span class="tray-hide logged-links" data-logged-user="true">
+                                <a href="{{ links.central }}">Central do Cliente</a> | <a href="{{ links.logout }}">Sair</a>
+                            </span>
+                        </div>
+
+                        <div class="carrinho col-md-3 col-sm-3">
+                            <div class="minicart">
+                                <a href="{{ links.cart }}">
+                                    <span class="ico-carrinho">
+                                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 459.529 459.529" style="enable-background:new 0 0 459.529 459.529;" xml:space="preserve" fill="{{settings.color_tone_3}}"> <g> <g> <path d="M17,55.231h48.733l69.417,251.033c1.983,7.367,8.783,12.467,16.433,12.467h213.35c6.8,0,12.75-3.967,15.583-10.2 l77.633-178.5c2.267-5.383,1.7-11.333-1.417-16.15c-3.117-4.817-8.5-7.65-14.167-7.65H206.833c-9.35,0-17,7.65-17,17 s7.65,17,17,17H416.5l-62.9,144.5H164.333L94.917,33.698c-1.983-7.367-8.783-12.467-16.433-12.467H17c-9.35,0-17,7.65-17,17 S7.65,55.231,17,55.231z"/> <path d="M135.433,438.298c21.25,0,38.533-17.283,38.533-38.533s-17.283-38.533-38.533-38.533S96.9,378.514,96.9,399.764 S114.183,438.298,135.433,438.298z"/> <path d="M376.267,438.298c0.85,0,1.983,0,2.833,0c10.2-0.85,19.55-5.383,26.35-13.317c6.8-7.65,9.917-17.567,9.35-28.05 c-1.417-20.967-19.833-37.117-41.083-35.7c-21.25,1.417-37.117,20.117-35.7,41.083 C339.433,422.431,356.15,438.298,376.267,438.298z"/> </g> </g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> <g></g> </svg>
+                                    </span>
+                                    <span class="qtdeCarrinho" data-cart="amount">{{ cart.amount }}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>   
+    
+    <div class="menu-mobile">
+        {{ _view.element('snippets/categories_mobile') }}
+    </div>
+
+</header>
+<div class="fundo2">
+    <div id="page" class="container nospace">
+        <div class="menuSuperior main-menu row">
+            <div class="listaMenu col-sm-12">
+                {{ _view.element('snippets/categories_list') }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    

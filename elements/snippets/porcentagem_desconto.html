@@ -1,0 +1,11 @@
+{#
+# Porcentagem Desconto
+# elements/snippets/porcentagem_desconto.html
+#}
+
+{% set porcentagemDesconto = 100 - ( product.price_offer / product.price ) * 100 %}
+{% if porcentagemDesconto < 100 %}
+  <span class="porcentagem">
+      Aproveite este produto está com {{ porcentagemDesconto|number_format }}% de desconto.
+  </span>
+{% endif %}

@@ -1,0 +1,239 @@
+{% set showHeader = not getLayout or (getLayout and 'header' in elementsToLoad) %}
+{% set showFooter = not getLayout or (getLayout and 'footer' in elementsToLoad) %}
+{% set showLeft = not getLayout or (getLayout and 'left' in elementsToLoad) %}
+{% set showRight = not getLayout or (getLayout and 'right' in elementsToLoad) %}
+<!doctype html>
+<html lang="pt-br" data-theme="{{ settings.extension_id }}" data-store="{{ store.id }}" class="page-{{ pages.current }}">
+<head>
+    {{ html.charset() }}
+    {% if pages.current == 'home' %}
+        <meta property="og:image" content="{{ themePath }}img/casa.center.jpg" />
+        <meta property="og:url" content="https://www.casa.center" />
+        <meta property="og:type" content="product" />
+        <meta property="og:app_id" content="1922068164488828" />
+
+        <title>Casa.Center - Lustres, Presentes e Decoração</title>
+        
+        <meta http-equiv="content-language" content="pt-br"/>
+        <meta name="robots" content="FOLLOW,INDEX,ALL"/>
+        <meta name="MSSmartTagsPreventParsing" content="true"/>
+        <meta name="description" content="Inspirações e Tendências para Casa. Iluminação, Presentes e Decoração com Design Exclusivo. Preços de promoção todos os dias!" />
+        <meta name="keywords" content="Decoração, Iluminação, presentes" />
+        <base id="tag_base" href="https://www.casa.center/loja/"/>
+        <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+        <meta property="og:title" content="Casa.Center - Lustres, Presentes e Decoração" />
+        <meta property="og:description" content="Inspirações e Tendências para Casa. Iluminação, Presentes e Decoração com Design Exclusivo. Preços de promoção todos os dias!" />
+        <link rel="shortcut icon" href="https://images.tcdn.com.br/img/img_prod/577838/1499806406_ccenter.ico?5a5cf315c995e" type="image/x-icon"/>
+    {% else %}
+        <!-- META -->
+        {{ tray.meta }}
+        <!-- META -->
+    {% endif %} 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="p:domain_verify" content="3e8f55f9f568e1fbf4c39611fe026c5b"/>
+    <!-- [if IE]<meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    
+    {{ tray.styles }}
+    <link rel="stylesheet" href="{{ themePath }}css/bootstrap/bootstrap.min.css?{{ utils.assets_version }}">
+    <link rel="stylesheet" href="{{ themePath }}css/theme.min.css?{{ utils.assets_version }}"> 
+    <link rel="stylesheet" href="{{ themePath }}css/style.css?{{ utils.assets_version }}">
+
+    {% element 'custom' { 'themeID': 5 } %}
+
+    <link rel="stylesheet" href="{{ themePath }}css/owl-carousel/owl.carousel.min.css?{{ utils.assets_version }}">
+    <link rel="stylesheet" href="{{ themePath }}css/owl-carousel/owl.theme.default.min.css?{{ utils.assets_version }}">
+
+    
+    {{ tray.analytics }}
+    {{ googleTagManager.header(pages.current, tagManagerData) }}
+
+    {{ tray.scripts }}
+
+    <!-- Start of Conectiva.io - XEngine Web Framework -->
+    <script type="text/javascript" id="xengine" src="//conectiva.io/XEngine/loader.js?key=71Q5A4O090"></script>
+    <!-- End of Conectiva.io -->
+
+    
+
+</head>
+<body class="theme-5 {{ settings.class_name }} {% if settings.checkbox_body_color == 1 %}background-no-color{% endif %}{% if settings.checkbox_body_image == 1 %} background-no-image{% endif %} {{ settings.position_body_bg }} {{ settings.repeat_body_bg }} {{ settings.structure }} {{ settings.fonts }} page-{{ pages.current }} custom-background-body custom-color-body" data-page="{{ pages.current }}">
+
+    {{ googleTagManager.top(pages.current, tagManagerData) }}
+
+    {% element 'snippets/messages' %}
+
+    {% if showHeader %}
+        {{ _view.element('header') }}
+    {% endif %}
+    
+    {% if pages.current == 'home' %}
+        <section id="banners" class="carousel-banner owl-carousel owl-theme">
+            <a href="https://www.casa.center/ambientes/sala-de-jantar" class="banner-simples">
+                <img src="{{ themePath }}img/banner-sala-de-jantar.jpg?{{ utils.assets_version }}" alt="Sala de Jantar" class="img-responsive">
+            </a>
+            <a href="https://www.casa.center/cadeira-bossa" class="banner-simples">
+                <img src="{{ themePath }}img/banner-bossa.jpg?{{ utils.assets_version }}" alt="Cadeira Bossa" class="img-responsive">
+            </a>
+            <a href="https://www.casa.center/decoracao/objetos-decorativos/muranos" class="banner-simples">
+                <img src="{{ themePath }}img/banner-muranos-agosto.jpg?{{ utils.assets_version }}" alt="Muranos na Decoração" class="img-responsive">
+            </a>
+        </section>
+    {% endif %}
+
+    <div id="conteudo-principal" class="container">
+        <div class="content">
+            <section class="page-content col-sm-12">
+                {{ content_for_layout }}
+            </section>
+        </div>
+    </div>
+ 
+    {% if showFooter %}
+
+        {{ _view.element('footer') }}
+
+        {% if banner.footer %}
+            <div class="banner banner-footer">
+                {{ banner.footer }}
+            </div>
+        {% endif %}
+
+        {% if pages.current == 'home' %}
+            {{ banner.popup ~ banner.floating }}
+        {% endif %}
+
+        {{ _view.element('snippets/credits') }}
+
+    {% endif %}
+    
+    {{ store.chat }}
+
+    {{ googleTagManager.bottom(pages.current, tagManagerData) }}
+   
+    <script src="{{ themePath }}js/owl.carousel.min.js?{{ utils.assets_version }}"></script>
+    <script src="{{ themePath }}js/slick.min.js?{{ utils.assets_version }}"></script>
+    <script type="text/javascript" src="{{ themePath }}js/default.js?{{ utils.assets_version }}"></script>
+    <script type="text/javascript" src="{{ themePath }}js/setMenuMobile.js?{{ utils.assets_version }}"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,900" rel="stylesheet">
+
+    {% element 'snippets/modal' %}
+    
+    {% if pages.current != 'login' %}
+        {% element 'snippets/tray_login' %}
+    {% endif %}    
+   
+    {{ html.script('dist/application.min.js?' ~ utils.assets_version) }}
+
+    {{ _view.element('snippets/pageview') }}
+
+    <!-- Hotjar Tracking Code for www.casa.center -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:831884,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+
+{% if utils.is_mobile %}
+    <script>
+        (function($){
+            jQuery('.carousel-mobile').owlCarousel({
+                items: 2,
+                loop:false,
+                infinite: true,
+                dots: false,
+                margin:10,
+                nav:true,
+                center: true,
+                //navText: ['<i class="fas fa-long-arrow-alt-left"></i>','<i class="fas fa-long-arrow-alt-right"></i>'],
+                //navText: ['<i class="fas fa-angle-left"></i>','<i class="fas fa-angle-right"></i>'],
+                navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+                autoplay: false,
+                //autoplayTimeout: 3000,
+                //autoplayHoverPause: true,
+                //rewind: true,
+                //smartSpeed: 1000,
+                
+            })
+        })(jQuery);
+    </script>
+
+    <style>
+        .carousel-showcase {position: relative; }
+        .carousel-showcase .owl-nav [class*=owl-] {position: absolute; top: 50%; background: white; border-radius: 0; padding: 20px 12px; margin: 0; color: black; font-size: 20px; margin-top: -40px; }
+        .carousel-showcase .owl-nav [class*=owl-]:hover {color: black; background-color: #f1f1f1; }
+        .carousel-showcase .owl-prev {left: 0; border-radius: 0 60px 60px 0 !important; box-shadow: 4px 0 10px rgba(0,0,0,.1); }
+        .carousel-showcase .owl-next {right: 0; border-radius: 60px 0 0 60px !important; box-shadow: -4px 0 10px rgba(0,0,0,.1); }
+
+        @media (max-width: 768px) {
+            .carousel-showcase .owl-item {padding: 0 5px; }
+            .carousel-showcase .owl-prev {left:-15px; }
+            .carousel-showcase .owl-next {right: -15px; }
+        }
+        
+        .carousel-mobile {margin: 0 -15px; width: calc(100% + 30px); }
+        .carousel-mobile .product>a {padding: 20px 10px 10px; }
+        .carousel-mobile .owl-item {transform: scale(.9) !important; transition: all .3s; opacity: .2; filter: blur(1px); }
+        .carousel-mobile .owl-item.active.center {transform: scale(1.1) !important; opacity: 1; filter: blur(0); }
+        
+        #secao-curadoria .owl-prev, #secao-curadoria .owl-next {background: transparent; padding: 30px; }
+        #secao-curadoria .owl-prev {position: absolute; left: 0; margin: 0; top: 50%; margin-top: -76px; }
+        #secao-curadoria .owl-next {position: absolute; right: 0; margin: 0; top: 50%; margin-top: -76px; }
+        #secao-curadoria .disabled {opacity: .1; }
+        #secao-curadoria  .owl-theme .owl-nav [class*=owl-] {color: #ababab; font-size: 46px; }
+        #secao-curadoria  .owl-theme .owl-nav [class*=owl-]:hover {color: #aaa; }
+    </style>
+{% endif %}
+
+
+    <script>
+        (function($){
+            jQuery('.carousel-showcase').owlCarousel({
+                items: 4,
+                slideBy: 4,
+                loop:true,
+                infinite: true,
+                dots: false,
+                margin:30,
+                nav:true,
+                center: false,
+                navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+                autoplay: false,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                rewind: true,
+                responsive:{              
+                        0:{
+                            items:1,
+                            margin: 15,
+                        },
+                        768:{
+                            items:2,
+                        },
+                        990:{
+                            items:4,
+                        }
+                    }
+            });
+
+
+            
+        })(jQuery);    
+    </script>
+
+    
+
+    
+
+    
+
+</body>
+</html>

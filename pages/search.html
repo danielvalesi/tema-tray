@@ -1,0 +1,71 @@
+{% if banner.title %}
+    <div class="banner banner-title">
+        {{ banner.title }}
+    </div>
+{% endif %}
+
+{% if breadcrumb %}
+
+    <div class="vspace-sm">
+        {{ _view.element('snippets/breadcrumb') }}
+    </div>
+
+{% endif %}
+
+{% if search.word %}
+
+    <div class="row header-busca">
+        <div class="col-md-8">
+            <h1>
+                Buscando por: <i>"{{ search.word }}"</i>
+            </h1>
+            <small class="category-result" style="margin-top:-10px; display: table; color:#666; font-weight: 100;">
+                {{ paginate.counter('Econtrado <b>{:count} produtos</b> em <b>{:pages} páginas</b>') }}
+            </small>
+        </div>
+        <div class="col-md-4">
+            {{ _view.element('snippets/filter', {
+                'brands': search.brands
+            }) }}
+        </div>
+    </div>
+    
+    
+
+{% endif %}
+
+{% if products|length > 0 %}
+    
+    <div class="vspace-sm">
+        
+    </div>
+
+    <div class="vspace-sm">
+        {{ _view.element('snippets/showcase', {
+            "products": products
+        }) }}
+    </div>
+
+    <div class="vspace-sm">
+        {{ _view.element('snippets/pagination') }}
+    </div>
+
+{% else %}
+
+    <p>Nenhum produto encontrado.</p>
+
+{% endif %}
+
+{% if banner.bottom %}
+    <div class="banner banner-bottom">
+        {{ banner.bottom }}
+    </div>
+{% endif %}
+
+<style>
+    form.catalogo-form-filtros .filtros {
+        width: auto;
+        margin: 15px 0;
+        padding: 0 15px;
+    }
+</style>

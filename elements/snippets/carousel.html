@@ -1,0 +1,13 @@
+
+    <ul id="carrossel" class="carousel-products owl-carousel owl-theme">
+    {% for product in products %}
+        {% if product.stock > 0 %}
+        <li class="carousel-products-item">
+            {{ _view.element('snippets/product', {"product": product}) }}
+            <span class="estoque">{{ product.stock }} Unidade{% if product.stock > 1 %}s{% endif %}</span>
+        </li>
+        {% endif %}
+        {% set categoria = Categories( { "id": categoria } ) %}
+    {% endfor %}
+    </ul>{% if products|length > 0 %}
+{% endif %}
